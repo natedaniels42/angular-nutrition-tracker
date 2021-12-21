@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 import { User } from '../user';
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
       .then((response: any) => {
         console.log(response.token)
         localStorage.setItem('id', (jwt_decode(response.token) as any).id);
-        localStorage.setItem('token', response.token);  
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/profile']);
       })
   }
 }
