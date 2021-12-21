@@ -8,7 +8,11 @@ import { User } from '../user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  user: User = new User('','','');
+  user: User = {
+    name: '',
+    email: '',
+    password: '',
+    food: []}
   
   constructor(private userService: UserService) { }
 

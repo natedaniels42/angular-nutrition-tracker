@@ -19,4 +19,16 @@ export class UserService {
         })
     }) 
   }
+
+  public login(data: Partial<User>) {
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.url}/auth/login`, data).subscribe(
+        (response) => {
+          resolve(response);
+        }, (err) => {
+          reject(err);
+        }
+      )
+    })
+  }
 }
