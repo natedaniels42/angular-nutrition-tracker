@@ -1,0 +1,10 @@
+<p>register works!</p>
+<form #userForm="ngForm" (submit)="handleSubmit(); name.value = ''; email.value = ''; password.value = ''">
+    <label for="name">Name:</label>
+    <input name="name" #name [(ngModel)]="user.name" type="text">
+    <label for="email">Email:</label>
+    <input name="email" #email type="text" [(ngModel)]="user.email">
+    <label for="password">Password:</label>
+    <input name="password" #password type="password" [(ngModel)]="user.password">
+    <button [disabled]="!userForm.valid">Submit</button>
+</form>
