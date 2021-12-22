@@ -16,9 +16,16 @@
       <p>{{food.name}}</p>
       <img src={{food.image}} width="50px">
     </div>
-    <button>Add to Meal</button>
+    <button (click)="handleSubmit(meal.value); searchInput.value = ''">Add to Meal</button>
 </div>
 <h3>Breakfast</h3>
+<div *ngFor="let item of breakfast">
+    <p>{{item.name}}</p>
+    <img src="assets/images/x-mark-24.png" width="16px" alt="red x">
+</div>
 <h3>Lunch</h3>
+<p *ngFor="let item of lunch">{{item.name}}</p>
 <h3>Dinner</h3>
+<p *ngFor="let item of dinner">{{item.name}}</p>
 <h3>Snacks</h3>
+<p *ngFor="let item of snack">{{item.name}}</p>
