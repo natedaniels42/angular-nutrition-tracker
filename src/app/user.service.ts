@@ -59,4 +59,16 @@ export class UserService {
       )
     })
   }
+
+  public removeFood(id: string, food: Food) {
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.url}/user/${id}/removefood`, food, {headers: this.headers}).subscribe(
+        (response) => {
+          resolve(response);
+        }, (err) => {
+          reject(err);
+        }
+      )
+    })
+  }
 }

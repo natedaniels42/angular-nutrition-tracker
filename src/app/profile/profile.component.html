@@ -19,13 +19,39 @@
     <button (click)="handleSubmit(meal.value); searchInput.value = ''">Add to Meal</button>
 </div>
 <h3>Breakfast</h3>
+<h4>Breakfast Calories: {{breakfastCalories}}</h4>
 <div *ngFor="let item of breakfast">
-    <p>{{item.name}}</p>
-    <img src="assets/images/x-mark-24.png" width="16px" alt="red x">
+    <div (click)='handleDetail(item)'>
+        <img src={{item.image}} width="16px" alt={{item.name}}>
+        <p>{{item.name}}</p>
+    </div>
+    <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" alt="red x">
 </div>
 <h3>Lunch</h3>
-<p *ngFor="let item of lunch">{{item.name}}</p>
+<h4>Lunch Calories: {{lunchCalories}}</h4>
+<div *ngFor="let item of lunch">
+    <div (click)='handleDetail(item)'>
+        <img src={{item.image}} width="16px" alt={{item.name}}>
+        <p>{{item.name}}</p>
+    </div>
+    <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" alt="red x">
+</div>
 <h3>Dinner</h3>
-<p *ngFor="let item of dinner">{{item.name}}</p>
+<h4>Dinner Calories: {{dinnerCalories}}</h4>
+<div *ngFor="let item of dinner">
+    <div (click)='handleDetail(item)'>
+        <img src={{item.image}} width="16px" alt={{item.name}}>
+        <p>{{item.name}}</p>
+    </div>
+    <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" alt="red x">
+</div>
 <h3>Snacks</h3>
-<p *ngFor="let item of snack">{{item.name}}</p>
+<h4>Snack Calories: {{snackCalories}}</h4>
+<div *ngFor="let item of snack">
+    <div (click)='handleDetail(item)'>
+        <img src={{item.image}} width="16px" alt={{item.name}}>
+        <p>{{item.name}}</p>
+    </div>
+    <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" alt="red x">
+</div>
+<h2>Total calories: {{totalCalories}}</h2>

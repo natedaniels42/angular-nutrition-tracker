@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'food-detail', component: FoodDetailComponent}
+  {path: 'food-detail/:id', component: FoodDetailComponent},
+  {path: '**', pathMatch: 'full', component: PagenotfoundComponent}
 ];
 
 @NgModule({

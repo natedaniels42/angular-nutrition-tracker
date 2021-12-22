@@ -6,5 +6,5 @@ export interface Food {
     carbs: number,
     fat: number,
     protein: number,
-    image: string
+    image: string,
 }

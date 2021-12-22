@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../user';
 import { Food } from '../food';
 import { UserService } from '../user.service';
@@ -32,12 +33,17 @@ export class ProfileComponent implements OnInit {
   lunch: Food[] = [];
   dinner: Food[] = [];
   snack: Food[] = [];
+  breakfastCalories: number = 0;
+  lunchCalories: number = 0;
+  dinnerCalories: number = 0;
+  snackCalories: number = 0;
+  totalCalories: number = 0;
 
-  constructor(private userService: UserService, private foodService: FoodService) { }
+  constructor(private router: Router, private userService: UserService, private foodService: FoodService) { }
 
   changeDate($event: Event): void {
     this.date = new Date(($event.target as HTMLInputElement).value).toUTCString().split(' ').slice(0, 4).join(' ');
-    this.changeMeals();
+    this.changeMeals(this.user);
   }
 
   search(value: string): void {
@@ -47,8 +53,7 @@ export class ProfileComponent implements OnInit {
           return {name: food.food_name, image: food.photo.thumb};
         }).concat(response.branded.map((food: any) => {
           return {name: food.food_name, image: food.photo.thumb};
-        }))
-        
+        }))  
       })
   }
 
@@ -65,39 +70,53 @@ export class ProfileComponent implements OnInit {
       })
   }
 
-  handleSubmit(meal: string): void {
+  async handleSubmit(meal: string): Promise<void> {
     this.food.date = this.date;
     this.food.meal = meal;
-    this.userService.addFood(localStorage.getItem('id') as string, this.food)
-      .then((response: any) => {
-        console.log(response);
-        this.foods = [];
-        this.food = {date: this.date,
-          meal: '',
-          name: '',
-          calories: 0,
-          carbs: 0,
-          fat: 0,
-          protein: 0,
-          image: ''};
-          this.changeMeals();
-      })
+    const updatedUser: User = await this.userService.addFood(localStorage.getItem('id') as string, this.food) as User
+    this.foods = [];
+    this.food = {
+      date: this.date,
+      meal: '',
+      name: '',
+      calories: 0,
+      carbs: 0,
+      fat: 0,
+      protein: 0,
+      image: '',
+    };
+
+    this.changeMeals(updatedUser);
   }
 
-  changeMeals() {
-    this.breakfast = this.user.food.filter(item => item.date === this.date && item.meal === 'breakfast');
-    this.lunch = this.user.food.filter(item => item.date === this.date && item.meal === 'lunch');
-    this.dinner = this.user.food.filter(item => item.date === this.date && item.meal === 'dinner');
-    this.snack = this.user.food.filter(item => item.date === this.date && item.meal === 'snack');
+  async handleDelete(food: Food): Promise<void> {
+    const updatedUser: User = await this.userService.removeFood(localStorage.getItem('id') as string, food) as User;
+    this.changeMeals(updatedUser);
+  }
+
+  handleDetail(food: Food) {
+    localStorage.setItem('food', JSON.stringify(food));
+    this.router.navigate([`food-detail/${food.name}`]);
+  }
+
+  changeMeals(user: User) {
+    this.breakfast = user.food.filter(item => item.date === this.date && item.meal === 'breakfast');
+    this.lunch = user.food.filter(item => item.date === this.date && item.meal === 'lunch');
+    this.dinner = user.food.filter(item => item.date === this.date && item.meal === 'dinner');
+    this.snack = user.food.filter(item => item.date === this.date && item.meal === 'snack');
+    this.breakfastCalories = this.breakfast.reduce((a,c) => a + c.calories, 0);
+    this.lunchCalories = this.lunch.reduce((a,c) => a + c.calories, 0);
+    this.dinnerCalories = this.dinner.reduce((a,c) => a + c.calories, 0);
+    this.snackCalories = this.snack.reduce((a,c) => a + c.calories, 0);
+    this.totalCalories = this.breakfastCalories + this.lunchCalories + this.dinnerCalories + this.snackCalories;
   }
   
   ngOnInit(): void {
     this.userService.getUser(localStorage.getItem('id') as string)
-          .then((response: any) => {
-            this.user = response;
-            console.log(this.user);
-            this.changeMeals();
-          })
+      .then((response: any) => {
+        this.user = response;
+        console.log(this.user);
+        this.changeMeals(this.user);
+      })
   }
-
 }

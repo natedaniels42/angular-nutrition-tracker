@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { Chart1Component } from './chart1/chart1.component';
 import { Chart2Component } from './chart2/chart2.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FoodDetailComponent } from './food-detail/food-detail.component';
     ProfileComponent,
     Chart1Component,
     Chart2Component,
-    FoodDetailComponent
+    FoodDetailComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
