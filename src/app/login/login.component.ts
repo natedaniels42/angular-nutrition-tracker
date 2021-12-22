@@ -27,6 +27,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('id', (jwt_decode(response.token) as any).id);
         localStorage.setItem('token', response.token);
         this.router.navigate(['/profile']);
+
+        this.userService.getUser(localStorage.getItem('id') as string)
+          .then((response: any) => {
+            localStorage.setItem('user', JSON.stringify(response));
+          })
       })
   }
 }
