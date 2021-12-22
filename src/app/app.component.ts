@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'angular-nutrition-tracker';
   loggedIn: boolean = false;
-
   constructor(private router: Router) {};
 
   onClick() {
