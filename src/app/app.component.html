@@ -1,20 +1,29 @@
-<nav>
-  <ul>
-    <li>
-      <a [routerLink]="['']">Home</a>
-    </li>
-    <li *ngIf="loggedIn">
-      <a [routerLink]="['profile']">Profile</a>
-    </li>
-    <li *ngIf="!loggedIn">
-      <a [routerLink]="['register']">Register</a>
-    </li>
-    <li *ngIf="!loggedIn">
-      <a [routerLink]="['login']">Login</a>
-    </li>
-    <li *ngIf="loggedIn">
-      <a (click)="onClick()">Logout</a>
-    </li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
+<header>
+  <nav>
+    <a [routerLink]="['']">
+      <img src="assets/images/food-icon.png" width="40px" alt="Food Icon">
+      <h1>Nutrition Tracker</h1>
+    </a>
+    <ul>
+      <li>
+        <a [routerLink]="['']">Home</a>
+      </li>
+      <li *ngIf="loggedIn">
+        <a [routerLink]="['profile']">Profile</a>
+      </li>
+      <li *ngIf="!loggedIn">
+        <a [routerLink]="['register']">Register</a>
+      </li>
+      <li *ngIf="!loggedIn">
+        <a [routerLink]="['login']">Login</a>
+      </li>
+      <li *ngIf="loggedIn">
+        <a (click)="onClick()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
