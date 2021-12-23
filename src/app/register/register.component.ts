@@ -13,7 +13,12 @@ export class RegisterComponent implements OnInit {
     name: '',
     email: '',
     password: '',
+    dailyCalorieGoal: 0,
+    dailyCarbGoal: 0,
+    dailyFatGoal: 0,
+    dailyProteinGoal: 0,
     food: []}
+  message: string = '';
   
   constructor(private router: Router, private userService: UserService) { }
 
@@ -21,10 +26,15 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit() {
+    console.log(this.user)
     this.userService.createUser(this.user)
-      .then((response) => {
+      .then((response: any) => {
         console.log(response);
-        this.router.navigate(['/login']);
+        if (response.message === 'Success') {
+          this.router.navigate(['/login']);
+        } else {
+          console.log(response);
+        }
       })
   }
 }

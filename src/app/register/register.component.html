@@ -6,5 +6,14 @@
     <input name="email" #email type="text" [(ngModel)]="user.email">
     <label for="password">Password:</label>
     <input name="password" #password type="password" [(ngModel)]="user.password">
+    <label for="dailyCalorieGoal">Daily Calorie Goal:</label>
+    <input name="dailyCalorieGoal" #calorie type="number" step="100" value="2000" min="500" max="4000" [(ngModel)]="user.dailyCalorieGoal">
+    <label for="dailyCarbGoal">Daily Carb Goal:</label>
+    <input name="dailyCarbGoal" #carb type="number" value="40" [(ngModel)]="user.dailyCarbGoal">
+    <label for="dailyFatGoal">Daily Fat Goal:</label>
+    <input name="dailyFatGoal" #fat type="number" value="40" [(ngModel)]="user.dailyFatGoal">
+    <label for="dailyProteinGoal">Daily Protein Goal:</label>
+    <input name="dailyProteinGoal" #protein type="number" value="40" [(ngModel)]="user.dailyProteinGoal">
+    <p *ngIf="message">{{message}}</p>
     <button [disabled]="!userForm.valid">Submit</button>
 </form>

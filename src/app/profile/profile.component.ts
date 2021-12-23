@@ -15,6 +15,10 @@ export class ProfileComponent implements OnInit {
     name: '',
     email: '',
     password: '',
+    dailyCalorieGoal: 0,
+    dailyCarbGoal: 0,
+    dailyFatGoal: 0,
+    dailyProteinGoal: 0,
     food: []
   }
   date: string = new Date().toUTCString().split(' ').slice(0, 4).join(' ');
