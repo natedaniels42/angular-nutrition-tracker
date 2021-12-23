@@ -55,16 +55,20 @@
     <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" alt="red x">
 </div>
 <h2>Total calories: {{totalCalories}}</h2>
-<chart1 
-    [carbs]="carbPercentage" 
-    [fat]="fatPercentage" 
-    [protein]="proteinPercentage"></chart1>
-<chart2
-    [totalCalories]="totalCalories"
-    [totalCarbs]="totalCarbs"
-    [totalFat]="totalFat"
-    [totalProtein]="totalProtein"
-    [dailyCalorieGoal]="user.dailyCalorieGoal"
-    [dailyCarbGoal]="user.dailyCarbGoal"
-    [dailyFatGoal]="user.dailyFatGoal"
-    [dailyProteinGoal]="user.dailyProteinGoal"></chart2>
+<div *ngIf="totalCalories > 0">
+    <chart1 
+        [carbs]="carbPercentage" 
+        [fat]="fatPercentage" 
+        [protein]="proteinPercentage">
+    </chart1>
+    <chart2
+        [totalCalories]="totalCalories"
+        [totalCarbs]="totalCarbs"
+        [totalFat]="totalFat"
+        [totalProtein]="totalProtein"
+        [dailyCalorieGoal]="user.dailyCalorieGoal"
+        [dailyCarbGoal]="user.dailyCarbGoal"
+        [dailyFatGoal]="user.dailyFatGoal"
+        [dailyProteinGoal]="user.dailyProteinGoal">
+    </chart2>
+</div>

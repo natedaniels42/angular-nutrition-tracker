@@ -41,8 +41,8 @@ export class ProfileComponent implements OnInit {
   lunchCalories: number = 0;
   dinnerCalories: number = 0;
   snackCalories: number = 0;
-  totalCalories: number = 0;
   totalNutrients: number = 0;
+  totalCalories: number = 0;
   totalCarbs: number = 0;
   totalFat: number = 0;
   totalProtein: number = 0;
@@ -78,6 +78,7 @@ export class ProfileComponent implements OnInit {
         this.food.fat = Math.round(response.foods[0].nf_total_fat);
         this.food.protein = Math.round(response.foods[0].nf_protein);
         this.food.image = response.foods[0].photo.thumb;
+        console.log(this.food);
       })
   }
 
@@ -97,6 +98,7 @@ export class ProfileComponent implements OnInit {
       image: '',
     };
 
+    console.log(updatedUser);
     this.changeMeals(updatedUser);
   }
 

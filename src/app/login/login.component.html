@@ -1,8 +1,8 @@
-<p>login works!</p>
-<form #loginForm="ngForm" (submit)="login()">
+<form #loginForm="ngForm" (submit)="login(); email.value = ''; password.value = ''">
     <label for="email">Email:</label>
-    <input name="email" #email [(ngModel)]="user.email" type="text">
+    <input name="email" #email [(ngModel)]="user.email" type="text" (keyup)="message = ''" required>
     <label for="password">Password:</label>
-    <input name="password" #password [(ngModel)]="user.password" type="password">
-    <button>Login</button>
+    <input name="password" #password [(ngModel)]="user.password" type="password" (keyup)="message = ''" required>
+    <p class="error" *ngIf="message">{{message}}</p>
+    <button [disabled]="!loginForm.valid">Login</button>
 </form>

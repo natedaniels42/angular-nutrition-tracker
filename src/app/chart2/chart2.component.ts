@@ -33,7 +33,7 @@ export class Chart2Component implements OnChanges {
       {
         x: ['calories', 'carbs', 'fat', 'protein'],
         y: [this.dailyCalorieGoal, this.dailyCarbGoal, this.dailyFatGoal, this.dailyProteinGoal],
-        name: '',
+        name: 'Daily Goals',
         type: 'bar',
         orientation: 'v',
         legendgroup: 'group',
@@ -47,6 +47,8 @@ export class Chart2Component implements OnChanges {
     layout: {
       title: 'Nutrition Data vs goals',
       barmode: 'group',
+      width: 500,
+      height: 500,
       legend: {
         x: 0,
         y: 0,

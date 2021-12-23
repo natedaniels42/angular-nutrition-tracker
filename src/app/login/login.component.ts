@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
+
+  message: string = '';
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,6 +29,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('id', (jwt_decode(response.token) as any).id);
         localStorage.setItem('token', response.token);
         this.router.navigate(['/profile']);
+      })
+      .catch((err) => {
+        this.message = err.error.message;
       })
   }
 }

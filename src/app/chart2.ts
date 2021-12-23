@@ -16,6 +16,8 @@ export interface Chart2 {
     data: Data[],
     layout: {
       title: string,
+      width: number,
+      height: number,
       barmode: string,
       legend: {
         x: number,

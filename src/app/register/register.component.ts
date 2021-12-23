@@ -30,11 +30,10 @@ export class RegisterComponent implements OnInit {
     this.userService.createUser(this.user)
       .then((response: any) => {
         console.log(response);
-        if (response.message === 'Success') {
-          this.router.navigate(['/login']);
-        } else {
-          console.log(response);
-        }
+        this.router.navigate(['/login']);
       })
+      .catch((err) => {
+        this.message = err.error.message;
+      }) 
   }
 }

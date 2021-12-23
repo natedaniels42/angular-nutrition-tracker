@@ -1,19 +1,18 @@
-<p>register works!</p>
 <form #userForm="ngForm" (submit)="handleSubmit(); name.value = ''; email.value = ''; password.value = ''">
     <label for="name">Name:</label>
-    <input name="name" #name [(ngModel)]="user.name" type="text">
+    <input name="name" #name [(ngModel)]="user.name" type="text" (keyup)="message = ''" required>
     <label for="email">Email:</label>
-    <input name="email" #email type="text" [(ngModel)]="user.email">
+    <input name="email" #email type="text" [(ngModel)]="user.email" (keyup)="message = ''" required>
     <label for="password">Password:</label>
-    <input name="password" #password type="password" [(ngModel)]="user.password">
+    <input name="password" #password type="password" [(ngModel)]="user.password" (keyup)="message = ''" required>
     <label for="dailyCalorieGoal">Daily Calorie Goal:</label>
-    <input name="dailyCalorieGoal" #calorie type="number" step="100" value="2000" min="500" max="4000" [(ngModel)]="user.dailyCalorieGoal">
+    <input name="dailyCalorieGoal" #calorie type="number" step="100" value="2000" min="500" max="4000" [(ngModel)]="user.dailyCalorieGoal" (click)="message = ''" required>
     <label for="dailyCarbGoal">Daily Carb Goal:</label>
-    <input name="dailyCarbGoal" #carb type="number" value="40" [(ngModel)]="user.dailyCarbGoal">
+    <input name="dailyCarbGoal" #carb type="number" value="40" [(ngModel)]="user.dailyCarbGoal" (click)="message = ''" required>
     <label for="dailyFatGoal">Daily Fat Goal:</label>
-    <input name="dailyFatGoal" #fat type="number" value="40" [(ngModel)]="user.dailyFatGoal">
+    <input name="dailyFatGoal" #fat type="number" value="40" [(ngModel)]="user.dailyFatGoal" (click)="message = ''" required>
     <label for="dailyProteinGoal">Daily Protein Goal:</label>
-    <input name="dailyProteinGoal" #protein type="number" value="40" [(ngModel)]="user.dailyProteinGoal">
-    <p *ngIf="message">{{message}}</p>
+    <input name="dailyProteinGoal" #protein type="number" value="40" [(ngModel)]="user.dailyProteinGoal" (click)="message = ''" required>
+    <p *ngIf="message" class="error">{{message}}</p>
     <button [disabled]="!userForm.valid">Submit</button>
 </form>
