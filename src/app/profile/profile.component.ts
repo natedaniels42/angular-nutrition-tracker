@@ -38,6 +38,13 @@ export class ProfileComponent implements OnInit {
   dinnerCalories: number = 0;
   snackCalories: number = 0;
   totalCalories: number = 0;
+  totalNutrients: number = 0;
+  totalCarbs: number = 0;
+  totalFat: number = 0;
+  totalProtein: number = 0;
+  carbPercentage: number = 0;
+  fatPercentage: number = 0;
+  proteinPercentage: number = 0;
 
   constructor(private router: Router, private userService: UserService, private foodService: FoodService) { }
 
@@ -109,6 +116,13 @@ export class ProfileComponent implements OnInit {
     this.dinnerCalories = this.dinner.reduce((a,c) => a + c.calories, 0);
     this.snackCalories = this.snack.reduce((a,c) => a + c.calories, 0);
     this.totalCalories = this.breakfastCalories + this.lunchCalories + this.dinnerCalories + this.snackCalories;
+    this.totalCarbs = user.food.filter(item => item.date === this.date).reduce((a,c) => a + c.carbs, 0);
+    this.totalFat = user.food.filter(item => item.date === this.date).reduce((a,c) => a + c.fat, 0);
+    this.totalProtein = user.food.filter(item => item.date === this.date).reduce((a,c) => a + c.protein, 0);
+    this.totalNutrients = this.totalCarbs + this.totalFat + this.totalProtein;
+    this.carbPercentage = Math.round(this.totalCarbs / this.totalNutrients * 100);
+    this.fatPercentage = Math.round(this.totalFat / this.totalNutrients * 100);
+    this.proteinPercentage = Math.round(this.totalProtein / this.totalNutrients * 100);
   }
   
   ngOnInit(): void {
