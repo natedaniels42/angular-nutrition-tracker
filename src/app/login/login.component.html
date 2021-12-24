@@ -1,8 +1,14 @@
-<form #loginForm="ngForm" (submit)="login(); email.value = ''; password.value = ''">
-    <label for="email">Email:</label>
-    <input name="email" #email [(ngModel)]="user.email" type="text" (keyup)="message = ''" required>
-    <label for="password">Password:</label>
-    <input name="password" #password [(ngModel)]="user.password" type="password" (keyup)="message = ''" required>
-    <p class="error" *ngIf="message">{{message}}</p>
-    <button [disabled]="!loginForm.valid">Login</button>
-</form>
+<div id="login-container">
+    <form #loginForm="ngForm" id="login-form" (submit)="login(); email.value = ''; password.value = ''">
+        <div class="input-box">
+            <label for="email">Email:</label>
+            <input name="email" #email [(ngModel)]="user.email" type="text" (keyup)="message = ''" pattern="^\w+@\w+\.\w+$" required>
+        </div>
+        <div class="input-box">
+            <label for="password">Password:</label>
+            <input name="password" #password [(ngModel)]="user.password" type="password" (keyup)="message = ''" minlength="8" maxlength="16" required>
+        </div>
+        <p class="error" *ngIf="message">{{message}}</p>
+        <button [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>

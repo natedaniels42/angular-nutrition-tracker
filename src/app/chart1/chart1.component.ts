@@ -15,11 +15,15 @@ export class Chart1Component implements OnChanges {
     data: [{
       values: [this.carbs, this.fat , this.protein],
       labels: ['Carbs', 'Fat', 'Protein'],
-      type: 'pie'
+      type: 'pie',
+      marker: {
+        colors: ['blue', 'red', 'green']
+      }
     }],
     layout: {
-      height: 300,
-      width: 300
+    },
+    config: {
+      responsive: true
     }
   }
   

@@ -2,10 +2,14 @@ export interface Chart1 {
     data: [{
         values: number[],
         labels: string[],
-        type: string
+        type: string,
+        marker: {
+            colors: string[]
+        }
     }],
     layout: {
-        height: number,
-        width: number
+    },
+    config: {
+        responsive: boolean
     }
 }

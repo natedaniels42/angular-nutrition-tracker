@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+$primatry-color: rgb(127, 178, 245);
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, input, button {
+html, input, button, select {
     letter-spacing: .1rem;
     line-height: 1.3rem;
     font-family: 'Raleway', sans-serif;

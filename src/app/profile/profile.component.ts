@@ -11,6 +11,8 @@ import { FoodService } from '../food.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  change: boolean = false;
+  active: boolean = false;
   user: User = {
     name: '',
     email: '',
