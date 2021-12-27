@@ -17,10 +17,17 @@ export class Chart1Component implements OnChanges {
       labels: ['Carbs', 'Fat', 'Protein'],
       type: 'pie',
       marker: {
-        colors: ['blue', 'red', 'green']
+        colors: ['rgb(107, 107, 245)', 'rgb(250, 76, 76)', 'rgb(56, 250, 56)']
       }
     }],
     layout: {
+      title: 'Macronutrient Ratios',
+      legend: {
+        x: 0,
+        y: 0,
+        orientation: 'h',
+        bgcolor: '#eee'
+      },
     },
     config: {
       responsive: true

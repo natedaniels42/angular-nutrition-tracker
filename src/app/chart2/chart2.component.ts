@@ -8,18 +8,13 @@ import { Chart2 } from '../chart2';
 })
 export class Chart2Component implements OnChanges {
   @Input() totalCalories: number = 0;
-  @Input() totalCarbs: number = 0;
-  @Input() totalFat: number = 0;
-  @Input() totalProtein: number = 0;
   @Input() dailyCalorieGoal: number = 0;
-  @Input() dailyCarbGoal: number = 0;
-  @Input() dailyFatGoal: number = 0;
-  @Input() dailyProteinGoal: number = 0;
+
   chart2: Chart2 = {
     data: [
       {
-        x: ['calories', 'carbs', 'fat', 'protein'],
-        y: [this.totalCalories, this.totalCarbs, this.totalFat, this.totalProtein],
+        x: ['calories'],
+        y: [this.totalCalories],
         name: 'Daily Totals',
         type: 'bar',
         orientation: 'v',
@@ -31,8 +26,8 @@ export class Chart2Component implements OnChanges {
         }
       },
       {
-        x: ['calories', 'carbs', 'fat', 'protein'],
-        y: [this.dailyCalorieGoal, this.dailyCarbGoal, this.dailyFatGoal, this.dailyProteinGoal],
+        x: ['calories'],
+        y: [this.dailyCalorieGoal],
         name: 'Daily Goals',
         type: 'bar',
         orientation: 'v',
@@ -45,13 +40,11 @@ export class Chart2Component implements OnChanges {
       }
     ],
     layout: {
-      title: 'Nutrition Data vs goals',
+      title: '',
       barmode: 'group',
-      width: 500,
-      height: 500,
       legend: {
-        x: 0,
-        y: 0,
+        x: 1,
+        y: 1,
         orientation: 'h',
         bgcolor: '#eee'
       },
@@ -59,16 +52,19 @@ export class Chart2Component implements OnChanges {
         tickangle: -45
       },
       yaxis: {
-        title: ''
+        title: 'Calories (kCal)'
       },
+    },
+    config: {
+      responsive: true
     }
   }
   constructor() { }
 
   ngOnChanges(): void {
     if (this.totalCalories !== 0) {
-      this.chart2.data[0].y = [this.totalCalories, this.totalCarbs, this.totalFat, this.totalProtein];
-      this.chart2.data[1].y = [this.dailyCalorieGoal, this.dailyCarbGoal, this.dailyFatGoal, this.dailyProteinGoal];
+      this.chart2.data[0].y = [this.totalCalories];
+      this.chart2.data[1].y = [this.dailyCalorieGoal];
     }
   }
 

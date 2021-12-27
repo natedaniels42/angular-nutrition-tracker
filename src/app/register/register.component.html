@@ -1,32 +1,32 @@
 <div id="register-container">
     <form #userForm="ngForm" id="user-form" (submit)="handleSubmit(); name.value = ''; email.value = ''; password.value = ''">
         <div class="input-box">
+            <input name="name" #name [(ngModel)]="user.name" type="text" (keyup)="message = ''" autocomplete="off" required>
             <label for="name">Name:</label>
-            <input name="name" #name [(ngModel)]="user.name" type="text" (keyup)="message = ''" required>
         </div>
         <div class="input-box">
+            <input name="email" #email type="text" [(ngModel)]="user.email" (keyup)="message = ''" pattern="^\w+@\w+\.\w+$" autocomplete="off" required>
             <label for="email">Email:</label>
-            <input name="email" #email type="text" [(ngModel)]="user.email" (keyup)="message = ''" pattern="^\w+@\w+\.\w+$" required>
         </div>
         <div class="input-box">
+            <input name="password" #password type="password" [(ngModel)]="user.password" (keyup)="message = ''" minlength="8" maxlength="16" autocomplete="off" required>
             <label for="password">Password:</label>
-            <input name="password" #password type="password" [(ngModel)]="user.password" (keyup)="message = ''" minlength="8" maxlength="16" required>
         </div>
         <div class="input-box">
+            <input name="dailyCalorieGoal" #calorie type="number" step="100" value="2000" min="500" max="4000" [(ngModel)]="user.dailyCalorieGoal" (click)="message = ''" autocomplete="off" required>
             <label for="dailyCalorieGoal">Daily Calorie Goal:</label>
-            <input name="dailyCalorieGoal" #calorie type="number" step="100" value="2000" min="500" max="4000" [(ngModel)]="user.dailyCalorieGoal" (click)="message = ''" required>
         </div>
         <div class="input-box">
+            <input name="dailyCarbGoal" #carb type="number" min="100" max="400" [(ngModel)]="user.dailyCarbGoal" (click)="message = ''" autocomplete="off" required>
             <label for="dailyCarbGoal">Daily Carb Goal:</label>
-            <input name="dailyCarbGoal" #carb type="number" value="40" [(ngModel)]="user.dailyCarbGoal" (click)="message = ''" required>
         </div>
         <div class="input-box">
+            <input name="dailyFatGoal" #fat type="number" min="30" max="100" [(ngModel)]="user.dailyFatGoal" (click)="message = ''" autocomplete="off" required>
             <label for="dailyFatGoal">Daily Fat Goal:</label>
-            <input name="dailyFatGoal" #fat type="number" value="40" [(ngModel)]="user.dailyFatGoal" (click)="message = ''" required>
         </div>
         <div class="input-box">
+            <input name="dailyProteinGoal" #protein type="number" min="40" max="80" [(ngModel)]="user.dailyProteinGoal" (click)="message = ''" autocomplete="off" required>
             <label for="dailyProteinGoal">Daily Protein Goal:</label>
-            <input name="dailyProteinGoal" #protein type="number" value="40" [(ngModel)]="user.dailyProteinGoal" (click)="message = ''" required>
         </div>
         <p *ngIf="message" class="error">{{message}}</p>
         <button [disabled]="!userForm.valid">Submit</button>

@@ -16,8 +16,6 @@ export interface Chart2 {
     data: Data[],
     layout: {
       title: string,
-      width: number,
-      height: number,
       barmode: string,
       legend: {
         x: number,
@@ -31,5 +29,8 @@ export interface Chart2 {
       yaxis: {
         title: string
       },
-    }
+    },
+    config: {
+        responsive: boolean
+      }
   }

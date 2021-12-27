@@ -34,15 +34,20 @@
             input:focus {
                 outline: none;
                 background-color: #eee;
-
+                transition: .5s background-color;
             } 
+
+            input:focus ~ label {
+                font-size: .9rem;
+                transition: .5s font-size;
+            }
     
             input.ng-invalid.ng-dirty {
-                border-bottom: 5px solid rgb(252, 76, 76);
+                border-bottom: 2px solid rgb(252, 76, 76);
             }
             
             input.ng-dirty {
-                border-bottom: 5px solid rgb(183, 250, 183);
+                border-bottom: 2px solid rgb(183, 250, 183);
             }
 
             

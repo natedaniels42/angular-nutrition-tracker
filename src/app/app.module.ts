@@ -15,6 +15,7 @@ import { Chart1Component } from './chart1/chart1.component';
 import { Chart2Component } from './chart2/chart2.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { Chart3Component } from './chart3/chart3.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -28,7 +29,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     Chart1Component,
     Chart2Component,
     FoodDetailComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    Chart3Component
   ],
   imports: [
     BrowserModule,

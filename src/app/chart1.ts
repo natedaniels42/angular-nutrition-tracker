@@ -8,6 +8,13 @@ export interface Chart1 {
         }
     }],
     layout: {
+        title: string,
+        legend: {
+            x: number,
+            y: number,
+            orientation: string,
+            bgcolor: string
+          },
     },
     config: {
         responsive: boolean

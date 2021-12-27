@@ -2,10 +2,13 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    width: 100vw;
+    height: 100vh;
 }
 
 #left {
-    width: 40%;
+    width: 40vw;
+    height: 100vh;
 } 
 
 h3 {
@@ -13,11 +16,11 @@ h3 {
 }
 
 h4 {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
 }
 
 p {
-    font-size: 1vw;
+    font-size: 1.5vw;
 }
 
 #date {
@@ -31,6 +34,14 @@ img {
 
 #input-box {
     padding: 20px;
+}
+
+#chosen {
+    display: flex;
+
+    p {
+        padding-left: 10px;
+    }
 }
 
 button {
@@ -129,9 +140,55 @@ button {
 }
 
 #right {
-    width: 60%;
+    width: 60vw;
+    height: 100vh;
+
+    div {
+        height: 50vh;
+    }
+
+    #bottom {
+        display: flex;
+        width: 100%;
+
+        div {
+            width: 30vw;
+        }
+    }
 }
 
 #chart1 {
     width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    p {
+        font-size: 2vw;
+    }
+    img {
+        width: 16px;
+        height: 16px;
+    }
+
+    #profile-container {
+        flex-direction: column;
+    }
+
+    #left, #right {
+        width: 100%;
+
+        div {
+            width: 100%;
+        }
+
+        .food-detail {
+            width: 50%;
+        }
+    }
+
+    #bottom {
+        div {
+            width: 50vw !important;
+        }
+    }
 }
