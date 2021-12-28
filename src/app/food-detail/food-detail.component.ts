@@ -23,6 +23,7 @@ export class FoodDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.food = JSON.parse(localStorage['food'])
+    console.log(this.food);
   }
 
 }

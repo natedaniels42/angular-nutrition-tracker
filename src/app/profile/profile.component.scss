@@ -11,6 +11,10 @@
     height: 90vh;
 } 
 
+h2 {
+    padding: 20px;
+}
+
 h3 {
     font-size: 2vw;
 }
@@ -59,7 +63,7 @@ button {
 #search-outer {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
     margin: 0 auto;
     
     input, select {
@@ -95,11 +99,12 @@ button {
     height: 100px;
     overflow-y: scroll;
     border: 1px solid grey;
-    width: 50%;
+    width: 100%;
     
     .search-foods {
         display: flex;
         padding: 1%;
+        width: 100%;
 
         img {
             padding-right: 5px;

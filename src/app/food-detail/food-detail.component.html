@@ -1,5 +1,14 @@
-<p>food-detail works!</p>
-<h2>{{food.name}}</h2>
-<img src={{food.image}} alt={{food.name}}>
-<a [routerLink]="['/profile']">Back to Profile</a>
-<p></p>
+<div id="detail-container">
+    <img src={{food.image}} alt={{food.name}}>
+    <h2>{{food.name | uppercase}}</h2>
+    <a [routerLink]="['/profile']">Back to Profile</a>
+    <div>
+        <h3>Nutrition Facts</h3>
+        <div id="detail-box">
+            <p>Calories: <span>{{food.calories}}</span></p>
+            <p>Total Fat: <span>{{food.fat}}</span></p>
+            <p>Total Carbohydrates: <span>{{food.carbs}}</span></p>
+            <p>Protein: <span>{{food.protein}}</span></p>
+        </div>
+    </div>
+</div>
