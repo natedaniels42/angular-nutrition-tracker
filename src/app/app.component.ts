@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!localStorage.getItem('id')) {
-      this.loginService.loggedIn$.subscribe(res => this.loggedIn = res); 
-    } else {
+    if (localStorage.getItem('id')) {
       this.loggedIn = true;
+    } else {
+      this.loginService.loggedIn$.subscribe(res => this.loggedIn = res); 
     }
   }
 }
