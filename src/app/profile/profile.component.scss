@@ -192,22 +192,37 @@ button {
 
 @media screen and (max-width: 800px) {
     p {
-        font-size: 2vw;
+        font-size: .8rem;
     }
     img {
         width: 16px;
         height: 16px;
     }
 
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: .9rem;
+    }
+
+    #date {
+        font-size: 1rem;
+    }
+
     #profile-container {
+        height: auto;
         flex-direction: column;
     }
 
     #left, #right {
         width: 100%;
+        height: fit-content;
 
         div {
             width: 100%;
+            height: fit-content;
         }
 
         .food-detail {
@@ -216,8 +231,10 @@ button {
     }
 
     #bottom {
+        flex-direction: column;
+
         div {
-            width: 50vw !important;
+            width: 90vw !important;
         }
     }
 }

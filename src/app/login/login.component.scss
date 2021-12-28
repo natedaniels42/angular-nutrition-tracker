@@ -73,3 +73,9 @@
 .error {
     color: red;
 }
+
+@media screen and (max-width: 600px) {
+    #login-form {
+        width: 80vw !important;
+    }
+}

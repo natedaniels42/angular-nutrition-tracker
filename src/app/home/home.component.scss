@@ -4,8 +4,19 @@ img {
     object-fit: cover;
 }
 
-h1, h2, h3 {
-    width: 80%;
+h1 {
+    font-size: 3rem;
+    line-height: 2rem;
+}
+
+h1, h2 {
+    width: 40%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+h3 {
+    width: 60%;
     padding: 10px;
     margin: 0 auto;
 }
@@ -16,6 +27,17 @@ h1, h2, h3 {
 
 .description {
     padding: 2%;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
+    line-height: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    h1, h2, h3 {
+        width: 80%;
+    }
+
+    .description {
+        width: 70%;
+    }
 }

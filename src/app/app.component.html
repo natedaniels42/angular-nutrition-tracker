@@ -4,7 +4,7 @@
       <img src="assets/images/food-icon.png" width="40px" alt="Food Icon">
       <h1>Nutrition Tracker</h1>
     </a>
-    <ul>
+    <ul [ngClass]="{'expand' : expand}">
       <li>
         <a [routerLink]="['']">Home</a>
       </li>
@@ -21,7 +21,7 @@
         <a (click)="onClick()">Logout</a>
       </li>
     </ul>
-    <!-- <img src="assets/images/hamburger.png" alt="hamburger menu icon" id="hamburger" width="24px" height="24px"> -->
+    <img src="assets/images/hamburger.png" (click)="toggle()" alt="hamburger menu icon" id="hamburger" width="24px" height="24px">
   </nav>
 </header>
 <main>

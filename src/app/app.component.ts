@@ -10,7 +10,13 @@ import { LoginService } from './login.service';
 export class AppComponent implements OnInit {
   title = 'angular-nutrition-tracker';
   loggedIn: boolean = false;
+  expand: boolean = false;
+
   constructor(private loginService: LoginService, private router: Router) {};
+
+  toggle() {
+    this.expand ? this.expand = false : this.expand = true;
+  }
 
   onClick() {
     localStorage.clear();

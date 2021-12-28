@@ -29,3 +29,14 @@
         background-color: #ddd;
     }
 }
+
+@media screen and (max-width: 600px) {
+    #detail-container {
+        width: 80%;
+        height: fit-content;
+    }
+
+    #detail-box {
+        width: 100%;
+    }
+}

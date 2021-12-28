@@ -74,3 +74,9 @@
 .error {
     color: red;
 }
+
+@media screen and (max-width: 600px) {
+    #user-form {
+        width: 80vw !important;
+    }
+}
