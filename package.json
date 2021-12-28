@@ -1,6 +1,9 @@
 {
   "name": "angular-nutrition-tracker",
   "version": "0.0.0",
+  "engines": {
+    "node": "17.0.1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
