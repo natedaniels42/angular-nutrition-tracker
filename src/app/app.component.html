@@ -6,19 +6,19 @@
     </a>
     <ul [ngClass]="{'expand' : expand}">
       <li>
-        <a [routerLink]="['']">Home</a>
+        <a [routerLink]="['']" (click)="expand = false">Home</a>
       </li>
       <li *ngIf="loggedIn">
-        <a [routerLink]="['profile']">Profile</a>
+        <a [routerLink]="['profile']" (click)="expand = false">Profile</a>
       </li>
       <li *ngIf="!loggedIn">
-        <a [routerLink]="['register']">Register</a>
+        <a [routerLink]="['register']" (click)="expand = false">Register</a>
       </li>
       <li *ngIf="!loggedIn">
-        <a [routerLink]="['login']">Login</a>
+        <a [routerLink]="['login']" (click)="expand = false">Login</a>
       </li>
       <li *ngIf="loggedIn">
-        <a (click)="onClick()">Logout</a>
+        <a (click)="onClick()" (click)="expand = false">Logout</a>
       </li>
     </ul>
     <img src="assets/images/hamburger.png" (click)="toggle()" alt="hamburger menu icon" id="hamburger" width="24px" height="24px">
