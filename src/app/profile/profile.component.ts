@@ -13,6 +13,7 @@ import { FoodService } from '../food.service';
 export class ProfileComponent implements OnInit {
   change: boolean = false;
   active: boolean = false;
+  error: boolean = false;
   user: User = {
     name: '',
     email: '',
@@ -60,6 +61,16 @@ export class ProfileComponent implements OnInit {
   }
 
   search(value: string): void {
+    this.food = {
+      date: this.date,
+      meal: '',
+      name: '',
+      calories: 0,
+      carbs: 0,
+      fat: 0,
+      protein: 0,
+      image: ''
+    }
     this.foodService.searchFood(value)
       .then((response: any) => {
         this.foods = response.common.map((food: any) => {
@@ -82,26 +93,31 @@ export class ProfileComponent implements OnInit {
         this.food.image = response.foods[0].photo.thumb;
         console.log(this.food);
       })
+    this.foods = [];
   }
 
   async handleSubmit(meal: string): Promise<void> {
-    this.food.date = this.date;
-    this.food.meal = meal;
-    const updatedUser: User = await this.userService.addFood(localStorage.getItem('id') as string, this.food) as User
-    this.foods = [];
-    this.food = {
-      date: this.date,
-      meal: '',
-      name: '',
-      calories: 0,
-      carbs: 0,
-      fat: 0,
-      protein: 0,
-      image: '',
-    };
-
-    console.log(updatedUser);
-    this.changeMeals(updatedUser);
+    if (this.food.name) {
+      this.food.date = this.date;
+      this.food.meal = meal;
+      const updatedUser: User = await this.userService.addFood(localStorage.getItem('id') as string, this.food) as User
+      this.foods = [];
+      this.food = {
+        date: this.date,
+        meal: '',
+        name: '',
+        calories: 0,
+        carbs: 0,
+        fat: 0,
+        protein: 0,
+        image: '',
+      };
+  
+      console.log(updatedUser);
+      this.changeMeals(updatedUser);
+    } else {
+      this.error = true;
+    }
   }
 
   async handleDelete(food: Food): Promise<void> {

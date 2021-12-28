@@ -3,12 +3,12 @@
     justify-content: space-between;
     padding: 20px;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
 }
 
 #left {
     width: 40vw;
-    height: 100vh;
+    height: 90vh;
 } 
 
 h3 {
@@ -24,6 +24,7 @@ p {
 }
 
 #date {
+    margin-top: 10px;
     font-size: 2vw;
 }
 
@@ -82,6 +83,10 @@ button {
     }
 }
  
+.search-food {
+    font-size: 1vw;
+}
+
 .search-foods:hover {
     background-color: #eee;
 }
@@ -124,9 +129,19 @@ button {
     }
 }
 
+.delete {
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: #ccc;
+    opacity: .5;
+}
+
 .food-info {
     display: flex;
     width: 100%;
+    cursor: pointer;
     
     img {
         margin: auto 2%;
@@ -139,9 +154,13 @@ button {
     }
 }
 
+.food-info p:hover {
+    opacity: .5;
+}
+
 #right {
     width: 60vw;
-    height: 100vh;
+    height: 90vh;
 
     div {
         height: 50vh;
@@ -159,6 +178,11 @@ button {
 
 #chart1 {
     width: 100%;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 800px) {

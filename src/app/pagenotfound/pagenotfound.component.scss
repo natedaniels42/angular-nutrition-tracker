@@ -1,0 +1,17 @@
+h1, a, p {
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 2rem;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    width: 500px;
+    align-self: center;
+}

@@ -21,7 +21,7 @@ export class Chart2Component implements OnChanges {
         legendgroup: 'group',
         mode: 'markers',
         marker: {
-          color: ['lightgrey'],
+          color: ['rgb(250, 205, 123)'],
           opacity: 0.7
         }
       },
@@ -34,7 +34,7 @@ export class Chart2Component implements OnChanges {
         legendgroup: 'group',
         mode: 'markers',
         marker: {
-          color: ['grey'],
+          color: ['rgb(255, 181, 44)'],
           opacity: 0.7
         }
       }

@@ -2,7 +2,7 @@
     <div id="left">
         <h2>Welcome, {{user.name}}</h2>
         <div id="input-box">
-            <button *ngIf="!active && !change" (click)="active = true">Search</button>
+            <button *ngIf="!active && !change" (click)="active = true; error = false">Search</button>
             <div *ngIf="active" id="search-outer">
                 <label for="meal">Choose a Meal: </label>
                 <select name="meal" #meal>
@@ -20,16 +20,17 @@
                 <div id="search-box" *ngIf="foods.length > 0 && searchInput.value !== ''">
                     <div *ngFor="let food of foods" #{{food.name}} class="search-foods" (click)="getFood(food.name); searchInput.value = ''">
                         <img src={{food.image}} width="20px">
-                        <p>{{food.name | uppercase}}</p>
+                        <p class="search-food">{{food.name | uppercase}}</p>
                     </div>
                 </div>
                 <button (click)="handleSubmit(meal.value); searchInput.value = ''; active = false">Add to Meal</button>
                 <button (click)="active = false">Close</button>
             </div>
+            <p *ngIf="error" id="error">You must choose a food to add it to a meal</p>
         </div>
-        <p id="date">{{date}}</p>
         <button *ngIf="!change && !active" (click)="change = true">Change Date</button>
         <input *ngIf="change" name="date" type="date" (change)="changeDate($event); change = false">
+        <p id="date">{{date}}</p>
         <div id="meals-container">
             <div class="meal-box">
                 <h3>Breakfast</h3>
@@ -39,7 +40,7 @@
                             <img src={{item.image}} width="16px" alt={{item.name}}>
                             <p>{{item.name | uppercase}}</p>
                         </div>
-                        <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
+                        <img src="assets/images/x-mark-24.png" class="delete" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
                     </div>
                 </div>
                 <h4>Breakfast Calories: {{breakfastCalories}}</h4>
@@ -52,7 +53,7 @@
                             <img src={{item.image}} width="16px" alt={{item.name}}>
                             <p>{{item.name | uppercase}}</p>
                         </div>
-                        <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
+                        <img src="assets/images/x-mark-24.png" class="delete" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
                     </div>
                 </div>
                 <h4>Lunch Calories: {{lunchCalories}}</h4>
@@ -65,7 +66,7 @@
                             <img src={{item.image}} width="16px" alt={{item.name}}>
                             <p>{{item.name | uppercase}}</p>
                         </div>
-                        <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
+                        <img src="assets/images/x-mark-24.png" class="delete" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
                     </div>
                 </div>
                 <h4>Dinner Calories: {{dinnerCalories}}</h4>
@@ -78,7 +79,7 @@
                             <img src={{item.image}} width="16px" alt={{item.name}}>
                             <p>{{item.name | uppercase}}</p>
                         </div>
-                        <img src="assets/images/x-mark-24.png" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
+                        <img src="assets/images/x-mark-24.png" class="delete" (click)="handleDelete(item)" width="16px" height="16px" alt="red x">
                     </div>
                 </div>
                 <h4>Snack Calories: {{snackCalories}}</h4>
@@ -88,11 +89,13 @@
     </div>
     <div id="right">
         <div *ngIf="totalCalories > 0">
-            <chart1 id="chart1"
-                [carbs]="carbPercentage" 
-                [fat]="fatPercentage" 
-                [protein]="proteinPercentage">
-            </chart1>
+            <div id="top">
+                <chart1 id="chart1"
+                    [carbs]="carbPercentage" 
+                    [fat]="fatPercentage" 
+                    [protein]="proteinPercentage">
+                </chart1>
+            </div>
             <h2>Nutritition Values vs. Goals</h2>
             <div id="bottom">
                 <div>
