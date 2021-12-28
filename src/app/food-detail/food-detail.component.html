@@ -2,13 +2,24 @@
     <img src={{food.image}} alt={{food.name}}>
     <h2>{{food.name | uppercase}}</h2>
     <a [routerLink]="['/profile']">Back to Profile</a>
-    <div>
+    <div id="detail-outer">
         <h3>Nutrition Facts</h3>
+        <p id="calories-box">Calories: <span class="total" id="calories">{{food.calories}}</span></p>
         <div id="detail-box">
-            <p>Calories: <span>{{food.calories}}kCal</span></p>
-            <p>Total Fat: <span>{{food.fat}}g</span></p>
-            <p>Total Carbohydrates: <span>{{food.carbs}}g</span></p>
-            <p>Protein: <span>{{food.protein}}g</span></p>
+            <p>% DV*</p>
+            <div>
+                <span class="percent">{{percentages.fat}}%</span>
+                <p>Total Fat: <span class="total">{{food.fat}}g</span></p>
+            </div>
+            <div>
+                <span class="percent">{{percentages.carbs}}%</span>
+                <p>Total Carbs: <span class="total">{{food.carbs}}g</span></p>
+            </div>
+            <div>
+                <span class="percent">{{percentages.protein}}%</span>
+                <p>Protein: <span class="total">{{food.protein}}g</span></p>
+            </div>
         </div>
+        <p id="note">* Percentages are based off the Daily Values(DV) you assigned in your account</p>
     </div>
 </div>
