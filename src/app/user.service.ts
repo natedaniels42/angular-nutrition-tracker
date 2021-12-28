@@ -9,7 +9,7 @@ import { Food } from './food';
 // local url - http://localhost:4000/api/v1
 // heroku url - https://nutrition-tracker-api42.herokuapp.com/api/v1
 export class UserService {
-  private url: string = 'http://localhost:4000/api/v1';
+  private url: string = 'https://nutrition-tracker-api42.herokuapp.com/api/v1';
   headers = new HttpHeaders()
     .set('Content-Type', 'application/json') 
 
