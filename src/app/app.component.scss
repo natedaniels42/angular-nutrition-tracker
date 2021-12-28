@@ -36,8 +36,30 @@ nav {
             }
         }
     }
+    
+    #hamburger {
+        position: absolute;
+        padding: 1px;
+        right: 0;
+        color: #fff;
+        visibility: hidden;
+    }
 }
 
 main {
     margin-top: 60px;
 }
+
+// @media screen and (max-width: 600px) {
+//     nav {
+//         #hamburger {
+//             visibility: visible;
+//         }
+//     }
+
+//     ul {
+//         top: 40px;
+//         flex-direction: column;
+//         visibility: hidden;
+//     }
+// }
