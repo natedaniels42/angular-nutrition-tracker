@@ -1,12 +1,12 @@
 <div id="login-container">
     <form #loginForm="ngForm" id="login-form" (submit)="login(); email.value = ''; password.value = ''">
         <div class="input-box">
-            <label for="email">Email:</label>
             <input name="email" #email [(ngModel)]="user.email" type="text" (keyup)="message = ''" pattern="^\w+@\w+\.\w+$" required>
+            <label for="email">Email:</label>
         </div>
         <div class="input-box">
-            <label for="password">Password:</label>
             <input name="password" #password [(ngModel)]="user.password" type="password" (keyup)="message = ''" minlength="8" maxlength="16" required>
+            <label for="password">Password:</label>
         </div>
         <p class="error" *ngIf="message">{{message}}</p>
         <button [disabled]="!loginForm.valid">Login</button>

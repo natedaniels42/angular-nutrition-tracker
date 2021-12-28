@@ -28,13 +28,14 @@
             </div>
             <p *ngIf="error" id="error">You must choose a food to add it to a meal</p>
         </div>
+        <p id="date">{{date}}</p>
         <button *ngIf="!change && !active" (click)="change = true">Change Date</button>
         <input *ngIf="change" name="date" type="date" (change)="changeDate($event); change = false">
-        <p id="date">{{date}}</p>
         <h2>Total calories: {{totalCalories}}</h2>
         <div id="meals-container">
             <div class="meal-box">
                 <h3>Breakfast</h3>
+                <p *ngIf="breakfast.length === 0">No foods added yet</p>
                 <div class="food-box">
                     <div class="food-info" *ngFor="let item of breakfast">
                         <div class="food-detail" (click)='handleDetail(item)'>
@@ -48,6 +49,7 @@
             </div>
             <div class="meal-box">
                 <h3>Lunch</h3>
+                <p *ngIf="lunch.length === 0">No foods added yet</p>
                 <div class="food-box">
                     <div class="food-info" *ngFor="let item of lunch">
                         <div class="food-detail" (click)='handleDetail(item)'>
@@ -61,6 +63,7 @@
             </div>
             <div class="meal-box">
                 <h3>Dinner</h3>
+                <p *ngIf="dinner.length === 0">No foods added yet</p>
                 <div class="food-box">
                     <div class="food-info" *ngFor="let item of dinner">
                         <div class="food-detail" (click)='handleDetail(item)'>
@@ -74,6 +77,7 @@
             </div>
             <div class="meal-box">
                 <h3>Snacks</h3>
+                <p *ngIf="snack.length === 0">No foods added yet</p>
                 <div class="food-box">
                     <div class="food-info" *ngFor="let item of snack">
                         <div class="food-detail" (click)='handleDetail(item)'>
