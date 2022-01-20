@@ -6,10 +6,10 @@ import { Food } from './food';
 @Injectable({
   providedIn: 'root'
 })
-// local url - http://localhost:4000/api/v1
-// heroku url - https://nutrition-tracker-api42.herokuapp.com/api/v1
+
 export class UserService {
-  private url: string = 'https://nutrition-tracker-api42.herokuapp.com/api/v1';
+  private deployedUrl: string = 'https://nutrition-tracker-api42.herokuapp.com/api/v1';
+  private localUrl: string = 'http://localhost:4000/api/v1';
   headers = new HttpHeaders()
     .set('Content-Type', 'application/json') 
 
@@ -17,7 +17,7 @@ export class UserService {
 
   public getUser(id: string) {
     return new Promise((resolve, reject) => {
-      this.http.get(`${this.url}/user/${id}`).subscribe(
+      this.http.get(`${this.deployedUrl}/user/${id}`).subscribe(
         (response) => {
           resolve(response);
         }, (err) => {
@@ -29,7 +29,7 @@ export class UserService {
   
   public createUser(data: User) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${this.url}/auth/register`, data).subscribe(
+      this.http.post(`${this.deployedUrl}/auth/register`, data).subscribe(
         (response) => {
           resolve(response);
         }, (err) => {
@@ -40,7 +40,7 @@ export class UserService {
 
   public login(data: Partial<User>) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${this.url}/auth/login`, data).subscribe(
+      this.http.post(`${this.deployedUrl}/auth/login`, data).subscribe(
         (response) => {
           resolve(response);
         }, (err) => {
@@ -52,7 +52,7 @@ export class UserService {
 
   public addFood(id: string, food: Food) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${this.url}/user/${id}/addfood`, food, {headers: this.headers}).subscribe(
+      this.http.post(`${this.deployedUrl}/user/${id}/addfood`, food, {headers: this.headers}).subscribe(
         (response) => {
           resolve(response);
         }, (err) => {
@@ -64,7 +64,7 @@ export class UserService {
 
   public removeFood(id: string, food: Food) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${this.url}/user/${id}/removefood`, food, {headers: this.headers}).subscribe(
+      this.http.post(`${this.deployedUrl}/user/${id}/removefood`, food, {headers: this.headers}).subscribe(
         (response) => {
           resolve(response);
         }, (err) => {

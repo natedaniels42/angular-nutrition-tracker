@@ -24,7 +24,7 @@ export class Chart3Component implements OnChanges {
         legendgroup: 'group',
         mode: 'markers',
         marker: {
-          color: ['rgb(206, 206, 255)', 'rgb(248, 132, 132)', 'rgb(139, 248, 139)'],
+          color: ['linear-gradient(rgb(206, 206, 255), rgb(0,0,0))', 'rgb(248, 132, 132)', 'rgb(139, 248, 139)'],
           opacity: 0.7
         }
       },
@@ -46,10 +46,10 @@ export class Chart3Component implements OnChanges {
       title: '',
       barmode: 'group',
       legend: {
-        x: 1,
+        x: .5,
         y: 1,
         orientation: 'h',
-        bgcolor: '#eee'
+        bgcolor: 'rgba(240, 240, 240, .5)'
       },
       xaxis: {
         tickangle: -45
@@ -59,7 +59,8 @@ export class Chart3Component implements OnChanges {
       },
     },
     config: {
-      responsive: true
+      responsive: true,
+      displayModeBar: false
     }
   }
   constructor() { }

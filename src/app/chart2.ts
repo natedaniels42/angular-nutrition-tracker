@@ -31,6 +31,7 @@ export interface Chart2 {
       },
     },
     config: {
-        responsive: boolean
+        responsive: boolean,
+        displayModeBar: boolean
       }
   }

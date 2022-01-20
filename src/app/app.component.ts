@@ -8,7 +8,7 @@ import { LoginService } from './login.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-nutrition-tracker';
+  title = 'Nutrition Tracker';
   loggedIn: boolean = false;
   expand: boolean = false;
 

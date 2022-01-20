@@ -17,7 +17,7 @@ export class Chart1Component implements OnChanges {
       labels: ['Carbs', 'Fat', 'Protein'],
       type: 'pie',
       marker: {
-        colors: ['rgb(107, 107, 245)', 'rgb(250, 76, 76)', 'rgb(56, 250, 56)']
+        colors: ['rgba(107, 107, 245, .2)', 'rgba(250, 76, 76, .2)', 'rgba(56, 250, 56, .2)']
       }
     }],
     layout: {
@@ -30,7 +30,8 @@ export class Chart1Component implements OnChanges {
       },
     },
     config: {
-      responsive: true
+      responsive: true,
+      displayModeBar: false
     }
   }
   

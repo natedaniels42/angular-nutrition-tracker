@@ -16,6 +16,7 @@ import { Chart2Component } from './chart2/chart2.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { Chart3Component } from './chart3/chart3.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -37,7 +38,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    PlotlyModule
+    PlotlyModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

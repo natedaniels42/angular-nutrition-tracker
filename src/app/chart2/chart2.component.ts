@@ -43,10 +43,10 @@ export class Chart2Component implements OnChanges {
       title: '',
       barmode: 'group',
       legend: {
-        x: 1,
-        y: 1,
+        x: .5,
+        y: 1.2,
         orientation: 'h',
-        bgcolor: '#eee'
+        bgcolor: 'rgba(240, 240, 240, .5)'
       },
       xaxis: {
         tickangle: -45
@@ -56,7 +56,8 @@ export class Chart2Component implements OnChanges {
       },
     },
     config: {
-      responsive: true
+      responsive: true,
+      displayModeBar: false
     }
   }
   constructor() { }

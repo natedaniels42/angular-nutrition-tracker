@@ -18,5 +18,6 @@ export interface Chart1 {
     },
     config: {
         responsive: boolean
+        displayModeBar: boolean
     }
 }
