@@ -22,11 +22,13 @@ export class Chart1Component implements OnChanges {
     }],
     layout: {
       title: 'Macronutrient Ratios',
+      paper_bgcolor: '#eee',
+      plot_bgcolor: '#eee',
       legend: {
         x: 0,
         y: 0,
         orientation: 'h',
-        bgcolor: '#eee'
+        bgcolor: 'rgba(240, 240, 240, .5)'
       },
     },
     config: {

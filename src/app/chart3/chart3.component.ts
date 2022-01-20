@@ -45,6 +45,8 @@ export class Chart3Component implements OnChanges {
     layout: {
       title: '',
       barmode: 'group',
+      plot_bgcolor: '#eee',
+      paper_bgcolor: '#eee',
       legend: {
         x: .5,
         y: 1,

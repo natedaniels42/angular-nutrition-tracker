@@ -17,6 +17,8 @@ export interface Chart2 {
     layout: {
       title: string,
       barmode: string,
+      plot_bgcolor: string,
+      paper_bgcolor: string,
       legend: {
         x: number,
         y: number,

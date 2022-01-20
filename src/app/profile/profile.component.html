@@ -1,7 +1,11 @@
 <div id="profile-container">
     <div id="left">
         <h2>Welcome, {{user.name}}</h2>
+        <h3>Total calories today: {{totalCalories}}</h3>
         <div id="input-box">
+            <p id="date">{{date}}</p>
+            <button *ngIf="!change && !active" (click)="change = true">Change Date</button>
+            <input *ngIf="change" name="date" type="date" (change)="changeDate($event); change = false">
             <button *ngIf="!active && !change" (click)="active = true; error = false">Search Foods</button>
             <div *ngIf="active" id="search-outer">
                 <label for="meal">Choose a Meal: </label>
@@ -28,10 +32,6 @@
             </div>
             <p *ngIf="error" id="error">You must choose a food to add it to a meal</p>
         </div>
-        <p id="date">{{date}}</p>
-        <button *ngIf="!change && !active" (click)="change = true">Change Date</button>
-        <input *ngIf="change" name="date" type="date" (change)="changeDate($event); change = false">
-        <h2>Total calories: {{totalCalories}}</h2>
         <div id="meals-container">
             <div class="meal-box">
                 <h3>Breakfast</h3>
@@ -94,7 +94,7 @@
     <div id="right">
         <div *ngIf="totalCalories > 0">
             <div id="top">
-                <chart1 id="chart1"
+                <chart1
                     [carbs]="carbPercentage" 
                     [fat]="fatPercentage" 
                     [protein]="proteinPercentage">

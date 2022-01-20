@@ -9,6 +9,8 @@ export interface Chart1 {
     }],
     layout: {
         title: string,
+        plot_bgcolor: string,
+        paper_bgcolor: string,
         legend: {
             x: number,
             y: number,
